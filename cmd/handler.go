@@ -17,7 +17,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 	}
 	ts, err := template.ParseFiles("./ui/html/index.html")
 	if err != nil {
-		fmt.Println("1: ", err)
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		return
 	}
@@ -27,4 +26,20 @@ func home(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("2: ", err)
 		return
 	}
+}
+
+func ascii(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+		return
+	}
+	ts, err := template.ParseFiles("./ui/html/index.html")
+	if err != nil {
+		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		return
+	}
+
+	textInput := r.FormValue("input_text")
+	chooseStyle := r.FormValue("style")
+	download := r.FormValue("download")
 }
