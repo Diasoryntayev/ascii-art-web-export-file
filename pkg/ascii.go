@@ -29,6 +29,9 @@ func AsciiDrawer(input, banner string) (string, bool) {
 	if !status {
 		return "", status
 	}
+	asciiArt := CreateMapWithAsciiArt(banner)
+	res := OutputAscii(inputText, asciiArt)
+	return res, status
 }
 
 func isOnlyAsciiSymbol(text string) ([]string, bool) {
