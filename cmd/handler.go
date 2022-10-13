@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ascii-art-web/pkg"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -42,4 +43,10 @@ func ascii(w http.ResponseWriter, r *http.Request) {
 	textInput := r.FormValue("input_text")
 	chooseStyle := r.FormValue("style")
 	download := r.FormValue("download")
+
+	asciiStyle, statusOfStyle := pkg.ChooseAsciiStyle(chooseStyle)
+	if !statusOfStyle {
+		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		return
+	}
 }
