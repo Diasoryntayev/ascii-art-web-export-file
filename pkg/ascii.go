@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func chooseAsciiStyle(s string) (string, bool) {
+func ChooseAsciiStyle(s string) (string, bool) {
 	var r string
 	switch s {
 	case "standard":
@@ -21,4 +21,11 @@ func chooseAsciiStyle(s string) (string, bool) {
 		return "", false
 	}
 	return r, true
+}
+
+func AsciiDrawer(input, banner string) (string, bool) {
+	inputText, status := isOnlyAsciiSymbol(input)
+	if !status {
+		return "", status
+	}
 }

@@ -49,4 +49,10 @@ func ascii(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		return
 	}
+
+	result, statusOfAscii := pkg.AsciiDrawer(textInput, asciiStyle)
+	if !statusOfAscii {
+		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+		return
+	}
 }
