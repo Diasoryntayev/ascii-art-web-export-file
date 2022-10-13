@@ -3,6 +3,7 @@ package pkg
 import (
 	"log"
 	"os"
+	"strings"
 )
 
 func ChooseAsciiStyle(s string) (string, bool) {
@@ -28,4 +29,15 @@ func AsciiDrawer(input, banner string) (string, bool) {
 	if !status {
 		return "", status
 	}
+}
+
+func isOnlyAsciiSymbol(text string) ([]string, bool) {
+	text = strings.ReplaceAll(text, "\r\n", "\n")
+	arrText := strings.Split(text, "\n")
+	for _, v := range text {
+		if (v < ' ' || v > '~') && v != '\n' {
+			return nil, false
+		}
+	}
+	return arrText, true
 }
