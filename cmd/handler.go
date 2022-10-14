@@ -8,6 +8,11 @@ import (
 	"strconv"
 )
 
+type dataOfClient struct {
+	Output string
+	Input  string
+}
+
 func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
