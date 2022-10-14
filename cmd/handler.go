@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strconv"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -54,5 +55,16 @@ func ascii(w http.ResponseWriter, r *http.Request) {
 	if !statusOfAscii {
 		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 		return
+	}
+
+	if download == "Download" {
+		w.Header().Set("Content-Disposition", "attachment; filename=result.txt")
+		w.Header().Set("Conten-Type", "text/plain")
+		w.Header().Set("Content-Length", strconv.Itoa(len(result)))
+		_, err := w.Write([]byte(result))
+		if err != nil {
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
 	}
 }
