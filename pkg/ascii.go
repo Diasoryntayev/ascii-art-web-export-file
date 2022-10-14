@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"bufio"
 	"log"
 	"os"
 	"strings"
@@ -43,4 +44,26 @@ func isOnlyAsciiSymbol(text string) ([]string, bool) {
 		}
 	}
 	return arrText, true
+}
+
+func CreateMapWithAsciiArt(AsciiFont string) map[rune][]string {
+	var s string
+	var counter uint8
+	data, _ := os.Open(AsciiFont)
+	arttext := bufio.NewScanner(data)
+	m := map[rune][]string{}
+	i := ' '
+	for arttext.Scan() {
+		s = arttext.Text()
+		if s != "" {
+			m[i] = append(m[i], s)
+			counter++
+		}
+		if counter == 8 {
+			counter = 0
+			i++
+		}
+	}
+	m['\n'] = []string{"", "", "", "", "", "", "", ""}
+	return m
 }
