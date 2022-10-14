@@ -50,11 +50,11 @@ func CreateMapWithAsciiArt(AsciiFont string) map[rune][]string {
 	var s string
 	var counter uint8
 	data, _ := os.Open(AsciiFont)
-	arttext := bufio.NewScanner(data)
+	artText := bufio.NewScanner(data)
 	m := map[rune][]string{}
 	i := ' '
-	for arttext.Scan() {
-		s = arttext.Text()
+	for artText.Scan() {
+		s = artText.Text()
 		if s != "" {
 			m[i] = append(m[i], s)
 			counter++
@@ -66,4 +66,21 @@ func CreateMapWithAsciiArt(AsciiFont string) map[rune][]string {
 	}
 	m['\n'] = []string{"", "", "", "", "", "", "", ""}
 	return m
+}
+
+func OutputAscii(clientText []string, ascii map[rune][]string) string {
+	var result string
+	for j := 0; j < len(clientText); j++ {
+		if clientText[j] == "" {
+			result += "\n"
+			continue
+		}
+		for i := 0; i < 8; i++ {
+			for _, v := range clientText[j] {
+				result += (ascii[(v)][i])
+			}
+			result += "\n"
+		}
+	}
+	return result
 }
