@@ -57,3 +57,23 @@ form {
     overflow: auto;
 }
 /* end main-page */
+
+
+/* start error-page */
+.error__message {
+    color:  rgb(96, 219, 14);
+    margin-top: 20%;
+    margin-bottom: 10px;
+    font-family: 'Rubik Maze';
+    text-align: center;
+    font-size: 100px;
+    padding: 5px;
+}
+
+.go__homepage {
+    font-size: 34px;
+    text-align: center;
+}
+/* end error-page */
+
+
