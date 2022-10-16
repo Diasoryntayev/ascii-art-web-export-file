@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap'); /*font: Rubik Maze*/
+
+
+/* start main-page */
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+header {
+    font-family: 'Rubik Maze';
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(96, 219, 14);
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.textarea {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(96, 219, 14);
+    color:  rgb(96, 219, 14);
+    width: 50%;
+    height: 70px;
+    padding: 9px;
+    margin: 10px 0;
+}
+
+.btn__box {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.select__style {
+    background-color: black;
+    border-color: rgb(96, 219, 14);
+    color: rgb(96, 219, 14);
+    padding: 3px;
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+.select__style:hover, .select__style:focus, .select__style:active {
+    opacity: .75;
+}
+
+.output {
+    color:  rgb(96, 219, 14);
+}
+
+.data {
+    overflow: auto;
+}
+/* end main-page */
