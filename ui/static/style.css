@@ -77,3 +77,49 @@ form {
 /* end error-page */
 
 
+/* Media start */
+@media screen and (max-width: 810px) {
+    header {
+        font-size: 75px;
+    }
+    .textarea {
+        width: 70%;
+    }
+
+    .error__message {
+        margin-top: 50%;
+        font-size: 50px;
+    }
+
+    .go__homepage {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        font-size: 45px;
+    }
+
+    .textarea {
+        width: 70%;
+        margin: 10px 0;
+    }
+
+    .select__style {
+        background-color: black;
+        border-color: rgb(96, 219, 14);
+        color: rgb(96, 219, 14);
+        padding: 2px;
+        font-size: 14px;
+    }
+    .error__message {
+        margin-top: 50%;
+        font-size: 32px;
+    }
+
+    .go__homepage {
+        font-size: 16px;
+    }
+}
+/* Media end */
